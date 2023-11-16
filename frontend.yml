@@ -17,7 +17,7 @@
 
    - name: removing onld nginx web content
      ansible.builtin.file:
-       path: /usr/share/nginx/html
+       path: /usr/share/nginx/html/*
        state: absent
 
 ## download and extract ansible module
@@ -32,7 +32,7 @@
    - name: downloading nginx code
      ansible.builtin.get_url:
        url: https://expense-artifacts.s3.amazonaws.com/frontend.zip
-       dest: /tmp/frontend.zip
+       dest: /usr/share/nginx/html/
 
 ## copy file ansible modul
 
