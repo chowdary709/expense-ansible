@@ -21,55 +21,15 @@
         path: /usr/share/nginx/html/*
         state: absent
 
-## download and extract ansible module
-# ## download file ansible module
-
-  #  - name: Download frontend Code
-  #    ansible.builtin.get_url:
-  #       url: https://expense-artifacts.s3.amazonaws.com/frontend.zip
-  #       dest: /tmp/frontend.zip
-#  - name: extracting nginx code
-   - name: extracting nginx code
+   - name: Download frontend Code and Extract it
      ansible.builtin.unarchive:
         src: https://expense-artifacts.s3.amazonaws.com/frontend.zip
         dest: /usr/share/nginx/html
         remote_src: yes
 
-## copy file ansible module
+   - name: Starting Nginx Service
+     ansible.builtin.systemd:
+        name: nginx
+        state: restarted
+        enabled: yes
 
-  #  - name: placlling frontend Code
-
-  #  - name: starting nginx server
-
-# echo installing nginx
-# dnf install nginx -y &>>$log_file
-# stat_check
-
-
-# echo placlling expense configuration file
-# cp expense.conf /etc/nginx/default.d/expense.conf &>>$log_file
-# stat_check
-
-
-# echo removing onld nginx web content
-# rm -rf /usr/share/nginx/html/* &>>$log_file
-# stat_check
-
-
-
-# cd /usr/share/nginx/html &>>$log_file
-
-# download_and_extract() {
-#  echo downloading $component code
-#  curl -o /tmp/$component.zip https://expense-artifacts.s3.amazonaws.com/$component.zip &>>$log_file
-#  stat_check
-
-#  echo extracting $component code
-#  unzip /tmp/$component.zip  &>>$log_file
-#  stat_check
-# }
-
-
-# echo starting nginx server
-# systemctl enable nginx
-# systemctl restart nginx
