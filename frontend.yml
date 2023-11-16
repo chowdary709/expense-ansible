@@ -22,18 +22,17 @@
 
 ## download and extract ansible module
 
-   - name: downloading nginx code
-     ansible.builtin.unarchive:
-       src: https://expense-artifacts.s3.amazonaws.com/frontend.zip
-       dest: /usr/share/nginx/html
+  #  - name: downloading nginx code
+  #    ansible.builtin.unarchive:
+  #      src: https://expense-artifacts.s3.amazonaws.com/frontend.zip
+  #      dest: /usr/share/nginx/html
 
 # ## download file ansible module
 
-#    - name: downloading nginx code
-#      ansible.builtin.get_url:
-#        url: https://expense-artifacts.s3.amazonaws.com/frontend.zip
-#        dest: /tmp/frontend.zip
-#        remote_src: yes
+   - name: downloading nginx code
+     ansible.builtin.get_url:
+       url: https://expense-artifacts.s3.amazonaws.com/frontend.zip
+       dest: /tmp/frontend.zip
 
 ## copy file ansible modul
 
