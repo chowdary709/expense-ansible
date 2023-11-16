@@ -22,18 +22,12 @@
        state: absent
 
 ## download and extract ansible module
-
-  #  - name: downloading nginx code
-  #    ansible.builtin.unarchive:
-  #      src: https://expense-artifacts.s3.amazonaws.com/frontend.zip
-  #      dest: /usr/share/nginx/html
-
 # ## download file ansible module
 
-   - name: downloading nginx code
+   - name: Download frontend Code
      ansible.builtin.get_url:
        url: https://expense-artifacts.s3.amazonaws.com/frontend.zip
-       dest: /usr/share/nginx/html/
+       dest: /tmp/frontend.zip
 
 ## copy file ansible modul
 
