@@ -37,7 +37,7 @@
 
 ## copy file ansible module
 
-   - name: placlling frontend Code
+  #  - name: placlling frontend Code
 
   #  - name: starting nginx server
 
