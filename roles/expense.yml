@@ -1,12 +1,23 @@
-- name: Expense Playbook
+- name: Expense Project Setup
   hosts: all
   become: yes
-  vars_files:
-    - variables.yml
+  roles:
+    - "{{ role_name }}"
 
-  tasks:
-    - name: Your task 1
-      ansible.builtin.some_module:
-        parameter1: "{{ user_name }}"
-        parameter2: "{{ user_password }}"
+
+
+
+
+
+# - name: Expense Playbook
+#   hosts: all
+#   become: yes
+#   vars_files:
+#     - variables.yml
+
+#   tasks:
+#     - name: Your task 1
+#       ansible.builtin.some_module:
+#         parameter1: "{{ user_name }}"
+#         parameter2: "{{ user_password }}"
 
