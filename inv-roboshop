@@ -1,0 +1,8 @@
+[FRONTEND]
+frontend-roboshop.internal
+
+[mysql]
+mysql-roboshop.internal
+
+[backend]
+backend-roboshop.internal
