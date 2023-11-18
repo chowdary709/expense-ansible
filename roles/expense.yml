@@ -1,0 +1,15 @@
+---
+- name: Expense Playbook
+  hosts: frontend.roboshop.internal
+  become: yes
+
+  vars_files:
+    - variables.yml
+
+  tasks:
+    - name: Your task 1
+      ansible.builtin.some_module:
+        parameter1: "{{ user_name }}"
+        parameter2: "{{ user_password }}"
+        parameter3: "{{ role_name }}"
+
