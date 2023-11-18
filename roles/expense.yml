@@ -4,24 +4,3 @@
   roles:
     - "{{ role_name }}"
 
-
-
-
-
-
-# - name: Expense Playbook
-#   hosts: all
-#   become: yes
-#   vars_files:
-#     - variables.yml
-
-#   tasks:
-#     - name: Your task 1
-#       ansible.builtin.some_module:
-#         parameter1: "{{ user_name }}"
-#         parameter2: "{{ user_password }}"
-
-# variables.yml
-# user_name: centos
-# user_password: DevOps321
-
