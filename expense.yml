@@ -5,9 +5,9 @@
     user_name: centos
     user_password: DevOps321
   roles:
-    # - "{{ role_name }}"
-    - role_name: frontend
-    - role_name: mysql
-    - role_name: backend
+    - "{{ role_name }}"
+    # - role_name: frontend
+    # - role_name: mysql
+    # - role_name: backend
 
 # ansible-playbook -i frontend.roboshop.internal, -e role_name=frontend expense.yml
