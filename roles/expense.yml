@@ -21,3 +21,7 @@
 #         parameter1: "{{ user_name }}"
 #         parameter2: "{{ user_password }}"
 
+# variables.yml
+# user_name: centos
+# user_password: DevOps321
+
