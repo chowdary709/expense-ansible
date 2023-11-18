@@ -1,4 +1,3 @@
----
 - name: Expense Playbook
   hosts: all
   become: yes
@@ -10,5 +9,4 @@
       ansible.builtin.some_module:
         parameter1: "{{ user_name }}"
         parameter2: "{{ user_password }}"
-        parameter3: "{{ role_name }}"
 
