@@ -1,8 +1,7 @@
 ---
 - name: Expense Playbook
-  hosts: frontend.roboshop.internal
+  hosts: all
   become: yes
-
   vars_files:
     - variables.yml
 
