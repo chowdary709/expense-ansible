@@ -26,23 +26,10 @@
     name: common
     tasks_from: app_prereq
 
-# - name: Install NodeJS dependencies
-#   ansible.builtin.shell: npm install
-#   args:
-#     chdir: /app
-
 - name: Install NodeJS dependencies
-  ansible.builtin.shell: |
-    npm install
-  args:
+  ansible.builtin.shell: npm install
+    args:
     chdir: /app
-
-# - name: Install NodeJS dependencies
-#   ansible.builtin.shell: npm install
-#   args:
-#     chdir: /app
-#   creates: /app/some_existing_file
-
 
 - name: Install MySQL Client
   ansible.builtin.dnf:
