@@ -8,7 +8,7 @@
     path: "{{ app_loc }}"
     state: directory
 
-- name: Download {{ component }} Code and Extract it
+- name: Download web Code and Extract it
   ansible.builtin.unarchive:
     src: https://expense-artifacts.s3.amazonaws.com/{{ component }}.zip
     dest: "{{ app_loc }}"
