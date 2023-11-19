@@ -1,25 +1,3 @@
-# - name: Installing Nginx
-#   ansible.builtin.dnf:
-#     name: nginx
-#     state: present
-
-# - name: Placing Expense Config File in Nginx
-#   ansible.builtin.template:
-#     src: expense.conf
-#     dest: /etc/nginx/default.d/expense.conf
-
-# - name: Include App Pre-requisites
-#   ansible.builtin.include_role:
-#     name: common
-#     tasks_from: app_prereq
-
-# - name: Starting Nginx Service
-#   ansible.builtin.systemd:
-#     name: nginx
-#     state: restarted
-#     enabled: yes
-
-
     - name: installing nginx
       ansible.builtin.dnf:
         name: nginx
