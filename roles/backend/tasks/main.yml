@@ -75,15 +75,16 @@
       ansible.builtin.user:
         name: expense
 
+    - name: Install NodeJS dependencies
+      ansible.builtin.shell: npm install
+      args:
+        chdir: /app
+
     - name: Include App Pre-requisites
       ansible.builtin.import_role:
         name: common
         tasks_from: app_prereq
 
-    - name: Install NodeJS dependencies
-      ansible.builtin.shell: npm install
-      args:
-        chdir: /app
 
     - name: Install MySQL Client
       ansible.builtin.dnf:
