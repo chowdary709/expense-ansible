@@ -4,13 +4,11 @@
     state: present
 
 - name: Placing Expense Config File in Nginx
-  ansible.builtin.copy:
+  ansible.builtin.template:
     src: expense.conf
     dest: /etc/nginx/default.d/expense.conf
 
-# hot code & code dry 
-
-- name: App Pre-requisites
+- name: Include App Pre-requisites
   ansible.builtin.import_role:
     name: common
     tasks_from: app_prereq
