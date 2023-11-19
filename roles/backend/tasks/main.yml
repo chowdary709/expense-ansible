@@ -28,8 +28,8 @@
 
 - name: Install NodeJS dependencies
   ansible.builtin.shell: npm install
-    args:
-      chdir: /app
+  args:
+    chdir: /app
 
 - name: Install MySQL Client
   ansible.builtin.dnf:
