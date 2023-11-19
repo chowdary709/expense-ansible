@@ -37,11 +37,11 @@
   args:
     chdir: /app
 
-- name: Install NodeJS dependencies
-  ansible.builtin.shell: npm install
-  args:
-    chdir: /app
-  creates: /app/some_existing_file
+# - name: Install NodeJS dependencies
+#   ansible.builtin.shell: npm install
+#   args:
+#     chdir: /app
+#   creates: /app/some_existing_file
 
 
 - name: Install MySQL Client
