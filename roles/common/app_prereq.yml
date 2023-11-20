@@ -14,4 +14,3 @@
     src: https://expense-artifacts.s3.amazonaws.com/$component.zip
     dest: "{{ app_loc }}"
     remote_src: yes
-
