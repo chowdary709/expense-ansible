@@ -1,3 +1,6 @@
+- name: Set Hostname
+  ansible.builtin.shell: set-hostname mysql
+
 - name: Copy MySQL Repo
   ansible.builtin.template:
     src: mysql.repo
