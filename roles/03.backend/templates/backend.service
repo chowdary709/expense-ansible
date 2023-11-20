@@ -1,3 +1,4 @@
+[Unit]
 Description = Backend Service
 
 [Service]
@@ -8,6 +9,3 @@ SyslogIdentifier=backend
 
 [Install]
 WantedBy=multi-user.target
-
-# mysql.roboshop.internal
-#{{ lookup('aws_ssm', 'mysql.con_url', region='us-east-1' ) }}
