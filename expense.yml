@@ -6,6 +6,8 @@
     user_password: DevOps321
   roles:
     - "{{ role_name }}"
+
+  
     # - role_name: frontend
     # - role_name: mysql
     # - role_name: backend
