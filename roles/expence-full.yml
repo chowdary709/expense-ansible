@@ -1,22 +1,3 @@
-#- name: Frontend Setup
-#  hosts: FRONTEND
-#  become: true
-#  roles:
-#    - 01.frontend
-#
-#- name: myaql Setup
-#  hosts: MYSQL
-#  become: true
-#  roles:
-#    - 02.mysql
-#
-#- name: backend Setup
-#  hosts: BACKEND
-#  become: true
-#  roles:
-#    - 03.backend
-
-
 - name: Frontend Setup
   hosts: FRONTEND
   become: true
