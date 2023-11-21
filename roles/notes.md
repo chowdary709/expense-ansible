@@ -7,3 +7,7 @@
 ## Host Matching:
 ### Ensure that the hosts specified in your inventory file are correct and that the playbook's host patterns match the groups defined in the inventory.
 ################################################
+
+# ansible-playbook -i frontend.roboshop.internal, -e role_name=01.frontend expense.yml ; 
+
+################################################
