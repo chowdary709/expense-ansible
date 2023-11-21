@@ -1,8 +1,8 @@
 ################################################
 ### To run an Ansible playbook against a specific group of hosts defined in an inventory file, you can use the following command:
 
----
-sidebar_position: Example
+--- 
+Example
 ---
 
 ```
