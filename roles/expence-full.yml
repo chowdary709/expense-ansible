@@ -15,11 +15,8 @@
 #  become: true
 #  roles:
 #    - 03.backend
-#  vars:
-#    user_name: centos
-#    user_password: DevOps321
 
----
+
 - name: Frontend Setup
   hosts: FRONTEND
   become: true
