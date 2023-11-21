@@ -1,5 +1,5 @@
 ################################################
-# git pull ; ansible-playbook -i inv-roboshop expence-full.yml
+# git pull ; ansible-playbook -i inv-expense expense-full.yml
 ################################################
 ## Check Playbook and Inventory:
 --------------------------------
