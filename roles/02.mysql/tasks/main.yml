@@ -13,7 +13,7 @@
 - name: Disable MySQL 8 Version
   ansible.builtin.service:
     name: mysqld
-    state: disabled
+    state: stopped
     enabled: no
 
 - name: Install MySQL Server
