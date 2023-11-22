@@ -46,6 +46,7 @@
 
 - name: Load Schema
   ansible.builtin.shell: mysql -h {{ lookup('aws_ssm', 'backend.con_url', region='us-east-1' ) }} -uroot -p{{ lookup('aws_ssm', 'expense.pass_url', region='us-east-1' ) }} < /app/schema/backend.sql
+
 - name: Start backend Service
   ansible.builtin.systemd:
     name: backend
@@ -62,3 +63,4 @@
 # ExpenseApp@1
 
 # {{ lookup('aws_ssm', 'expense.pass_url', region='us-east-1' ) }}
+
