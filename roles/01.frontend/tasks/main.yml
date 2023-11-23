@@ -16,10 +16,30 @@
     src: nginx.conf
     dest: /etc/nginx/nginx.conf
 
-- name: Include App Pre-requisites
-  ansible.builtin.import_role:
-    name: common
-    tasks_from: app_prereq.yml
+#- name: Include App Pre-requisites
+#  ansible.builtin.import_role:
+#    name: common
+#    tasks_from: app_prereq.yml
+
+#app_loc: /usr/share/nginx/html
+#component: frontend
+
+- name: Cleanup frontend old content
+  ansible.builtin.file:
+    path: /etc/nginx/nginx.conf
+    state: absent
+
+
+- name: Create app frontend directory
+  ansible.builtin.file:
+    path: /etc/nginx/nginx.conf
+    state: directory
+
+- name: Download frontend Code and Extract it
+  ansible.builtin.unarchive:
+    src: https://expense-artifacts.s3.amazonaws.com/frontend.zip
+    dest: /etc/nginx/nginx.conf
+    remote_src: yes
 
 - name: Starting Nginx Service
   ansible.builtin.systemd:
