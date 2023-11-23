@@ -20,12 +20,6 @@
     src: backend.service
     dest: /etc/systemd/system/backend.service
 
-- name: Copy Backend Service File
-  ansible.builtin.template:
-    src: backend.service
-    dest: /etc/systemd/system/backend.service
-
-
 - name: Add application user
   ansible.builtin.user:
     name: expense
@@ -45,7 +39,7 @@
     name: mysql
 
 - name: Load Schema
-  ansible.builtin.shell: mysql -h {{ lookup('aws_ssm', 'backend.con_url', region='us-east-1' ) }} -uroot -p{{ lookup('aws_ssm', 'expense.pass_url', region='us-east-1' ) }} < /app/schema/backend.sql
+  ansible.builtin.shell: mysql -h {{ lookup('aws_ssm', 'expense.backend.DB_HOST', region='us-east-1' ) }} -uroot -p{{ lookup('aws_ssm', 'expense.backend.DB_PASS', region='us-east-1' ) }} < /app/schema/backend.sql
 
 - name: Start backend Service
   ansible.builtin.systemd:
@@ -53,14 +47,3 @@
     state: restarted
     enabled: yes
     daemon-reload: yes
-
-################################################################
-# mysql.roboshop.internal
-
-# {{ lookup('aws_ssm', 'backend.con_url', region='us-east-1' ) }}
-#
-################################################################
-# ExpenseApp@1
-#
-# {{ lookup('aws_ssm', 'expense.pass_url', region='us-east-1' ) }}
-#
