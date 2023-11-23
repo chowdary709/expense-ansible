@@ -1,40 +1,31 @@
-- name: Set Hostname
-  ansible.builtin.shell: set-hostname frontend
-
-- name: Install Nginx
-  ansible.builtin.yum:
+- name: Installing Nginx
+  ansible.builtin.dnf:
     name: nginx
-    state: installed
+    state: present
 
-- name: Removing Old Web Content
+- name: Placing Expense Config File in Nginx
+  ansible.builtin.copy:
+    src: expense.conf
+    dest: /etc/nginx/default.d/expense.conf
+
+- name: Removing Old Nginx content
   ansible.builtin.file:
     path: /usr/share/nginx/html
     state: absent
 
-- name: Create application directory
+- name: Creating Nginx Content Directory
   ansible.builtin.file:
     path: /usr/share/nginx/html
     state: directory
 
-- name: Downloading Application Content
+- name: Download Frontend Code and Extract it
   ansible.builtin.unarchive:
     src: https://expense-artifacts.s3.amazonaws.com/frontend.zip
     dest: /usr/share/nginx/html
     remote_src: yes
 
-- name: Copy Nginx Service Config file
-  ansible.builtin.template:
-    src: nginx.conf
-    dest: /etc/nginx/nginx.conf
-  notify: Restart Nginx Service
-
-- name: Copy RoboShop Nginx Config file
-  ansible.builtin.template:
-    src: expense.conf
-    dest: /etc/nginx/default.d/roboshop.conf
-  notify: Restart Nginx Service
-
-#- name: Update Nginx Config
-#  ansible.builtin.template:
-#    src: nginx.conf
-#    dest: /etc/nginx/nginx.conf
+- name: Starting Nginx Service
+  ansible.builtin.systemd:
+    name: nginx
+    state: restarted
+    enabled: yes
