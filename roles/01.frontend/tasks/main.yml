@@ -38,9 +38,3 @@
   ansible.builtin.template:
     src: nginx.conf
     dest: /etc/nginx/nginx.conf
-
-- name: Start Nginx Service
-  ansible.builtin.systemd:
-    state: started
-    name: nginx
-    enabled: yes
