@@ -2,19 +2,19 @@
   hosts: FRONTEND
   become: true
   roles:
-    - 01.frontend
+    - frontend
 
 - name: MySQL Setup
   hosts: MYSQL
   become: true
   roles:
-    - 02.mysql
+    - mysql
 
 - name: Backend Setup
   hosts: BACKEND
   become: true
   roles:
-    - 03.backend
+    - backend
 
 - name: Common Variables Applicable to All Hosts
   hosts: all
