@@ -4,7 +4,6 @@
 --- 
 Example
 
-
 ```
  ansible-playbook -i inv-expense expense-full.yml 
 ```
@@ -18,6 +17,28 @@ with out variable diclarate :
 ```
 ansible-playbook -i <inventory_file> <playbook_file> --limit <group_name>
 ```
+# how to run remot node in ansible
+```shell
+ansible-pull -i localhost, -U "<URL>" -e role_name="<ROLE_NAME>" "playback.yml"
+```
+
+---
+EXAMPLE
+---
+```
+ansible-pull -i localhost, -U https://github.com/chowdary709/infra-ansible.git -e role_name=prometheus expense.yml
+```
+
+
+
+
+
+
+
+
+
+
+
 
 Where:
 
