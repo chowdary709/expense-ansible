@@ -1,0 +1,39 @@
+- name: Set Hostname
+  ansible.builtin.shell: set-hostname frontend
+
+- name: Installing Nginx
+  ansible.builtin.dnf:
+    name: nginx
+    state: present
+
+- name: Placing Expense Config File in Nginx
+  ansible.builtin.template:
+    src: expense.conf
+    dest: /etc/nginx/default.d/expense.conf
+
+- name: Update Nginx Config  # log setup
+  ansible.builtin.template:
+    src: nginx.conf
+    dest: /etc/nginx/nginx.conf
+
+- name: Include App Pre-requisites
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: app_prereq
+
+- name: Start Nginx
+  ansible.builtin.systemd_service:
+    state: restarted
+    name: nginx
+    enabled: yes
+
+
+- name: Gather public IP address
+  ansible.builtin.shell: curl -s ifconfig.me
+  register: public_ip
+
+- name: Debugging - Display public IP address
+  ansible.builtin.debug:
+    msg: "Public IP address is {{ public_ip.stdout }}"
+
+
